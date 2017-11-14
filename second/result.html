@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta naem="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <style>
+        body {
+            background: rgba(0, 0, 0, .1);
+            font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+        }
+
+        .content {
+            background: #29bde0;
+        }
+
+        .header {
+            position: relative;
+            height: 11.25vw;
+            width: 100%;
+        }
+
+        .header .header-home,
+        .header-notice {
+            top: 2.8vw;
+            display: inline-block;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .header .header-home img,
+        .header-notice img {
+            width: 5.6vw;
+            /*height: 5.6vw;*/
+            vertical-align: middle;
+        }
+
+        .header .header-home {
+            left: 3.4vw;
+        }
+
+        .header .header-notice {
+            right: 3.4vw;
+        }
+
+        .header .title {
+            text-align: center;
+            margin: 0px auto;
+            font-size: 5vw;
+            line-height: 11.25vw;
+            color: #fff;
+        }
+
+        .line{
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #74d4eb;
+        }
+
+        .result{
+            position: relative;
+            padding: 3.75vw 12.2vw;
+        }
+
+        .result .winner .reword-img{
+            position: relative;
+            margin: 0 auto;
+            width: 54.84vw;
+            height: 32vw;
+            background-image: url(img/flower.png);
+            background-size:54.84vw 32vw;
+            background-repeat: no-repeat;
+            font-size: 0;
+            text-align: center;
+        }
+
+        .result .winner .reword-img img{
+            width: 13.3vw;
+            height: 13.3vw;
+            margin-top: 3.75vw;
+        }
+
+        .result .winner .reword-img p{
+            font-size: 7vw;
+            margin-top:3.85vw;
+            color: #fff;
+        }
+        .result .winner .winner-msg{
+            line-height: 6.4vw;
+            font-size: 4.78vw;
+            color: #FFC865;
+            text-align: center;
+            margin-bottom:9.5vw;
+        }
+
+        .result .game-detail{
+            font-size: 0;
+            line-height: 5.9vw;
+            color: #fff;
+        }
+
+        .result .game-detail span{
+            font-size: 3.75vw;
+        }
+
+        .result .game-detail .roles li{
+            float: left;
+            margin-right: 8.1vw;
+        }
+
+        .result .game-detail .roles li:nth-of-type(3n+0){
+            margin-right: 0;
+        }
+        .result .game-detail .cover{
+            clear: both;
+        }
+        .process{
+            padding: 2vw 16.25vw 24.2vw 11.875vw;
+            background: #fff;
+            font-size: 0;
+            line-height: 5.9vw;
+        }
+        .process span{
+            font-size: 3.75vw;
+            color:#A6A6A6;
+        }
+        .process li{
+            position: relative;
+        }
+
+        .process .date{
+            font-size: 4.2vw;
+            color: #000;
+        }
+        .process .time{
+            position: absolute;
+            right: 0;
+            top: 1.25vw;
+            font-size: 2.81vw;
+            line-height: 1;
+        }
+        .menu{
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+            padding: 0 3.75vw;
+            width: 100vw;
+            height: 24.2vw;
+            background: rgba(41,189,223, .5)
+        }
+        .menu .btn{
+            font-size: 5.625vw;
+            padding: 3.75vw 8.75vw;
+            color: #fff;
+            border: none;
+            outline: none;
+            border-radius: 3vw;
+            margin-top:5.5vw;
+        }
+        .menu .btn-red{
+            background: #F56E6E;
+            float:left;
+        }
+        .menu .btn-yellow{
+            background:#FBB335;
+            float:right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="header">
+            <a href="javascript:;" class="header-home">
+                <img src="img/home.png" width="36" height="36">
+            </a>
+            <h1 class="title">游戏结果</h1>
+            <a href="javascript:;" class="header-notice">
+                <img src="img/notice.png" width="36" height="36">
+            </a>
+        </div>
+        <div class="line"></div>
+        <div class="result">
+            <div class="winner">
+                <div class="reword-img">
+                    <img src="img/reward.png">
+                    <p>卧底胜利</p>
+                </div>
+                <div class="winner-msg">
+                    太棒了！你知道吗？在捉鬼游戏中只有20%的卧底取得游戏最终的胜利哦！
+                </div>
+            </div>
+            <div class="game-detail">
+                <div class="gametime">
+                    <span>本次游戏共计用时</span>
+                    <span>0小时25分钟</span>
+                </div>
+                <div class="roles">
+                    <ul>
+                        <li>
+                            <span class="role">杀&#12288;手</span>
+                            <span class="num">0人</span>
+                        </li>
+                        <li>
+                            <span class="role">警&#12288;察</span>
+                            <span class="num">1人</span>
+                        </li>
+                        <li>
+                            <span class="role">平&#12288;民</span>
+                            <span class="num">6人</span>
+                        </li>
+                        <li>
+                            <span class="role">狙击手</span>
+                            <span class="num">0人</span>
+                        </li>
+                        <li>
+                            <span class="role">医&#12288;生</span>
+                            <span class="num">1人</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cover">
+                    <span class="cover-title">卧底词汇：</span>
+                    <span class="cover-word">爱新觉罗</span>
+                </div>
+                <div class="people">
+                    <span class="people-title">水民词汇：</span>
+                    <span class="people-word">努尔哈赤</span>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="process">
+            <ul>
+                <li>
+                    <h1 class="date">第1天</h1>
+                    <span class="time">0小时07分</span>
+                    <div class="details">
+                        <p>
+                            <span>晚上：</span>
+                            <span>5号被杀手杀死，5号是水民</span>
+                        </p>
+                        <p>
+                            <span>白天：</span>
+                            <span>8号被全民投票投死，8号是杀手</span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <h1 class="date">第2天</h1>
+                    <span class="time">0小时07分</span>
+                    <div class="details">
+                        <p>
+                            <span>晚上：</span>
+                            <span>5号被杀手杀死，5号是水民</span>
+                        </p>
+                        <p>
+                            <span>白天：</span>
+                            <span>8号被全民投票投死，8号是杀手</span>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <h1 class="date">第3天</h1>
+                    <span class="time">0小时07分</span>
+                    <div class="details">
+                        <p>
+                            <span>晚上：</span>
+                            <span>5号被杀手杀死，5号是水民</span>
+                        </p>
+                        <p>
+                            <span>白天：</span>
+                            <span>8号被全民投票投死，8号是杀手</span>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="menu">
+            <button class="btn btn-red" type="button">再来一局</button>
+            <button class="btn btn-yellow" type="button">上传并分享</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <style>
+    body {
+            background: rgba(0, 0, 0, .1);
+            font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+        }
+
+        .content {
+            background: #29bde0;
+        }
+
+        .header {
+            position: relative;
+            height: 11.25vw;
+            width: 100%;
+            border-bottom:1px solid #74d4eb;
+        }
+
+        .header .header-back,
+        .header-help {
+            top: 2.8vw;
+            display: inline-block;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .header .header-back img{
+            width: 3.75vw;
+            height: 5.6vw;
+            vertical-align: middle;
+        }
+
+        .header .header-help img{
+            width: 5.6vw;
+            height: 5.6vw;
+            vertical-align: middle;
+        }
+
+        .header .header-back {
+            left: 3.4vw;
+        }
+
+        .header .header-help {
+            right: 3.4vw;
+        }
+
+        .header .title {
+            text-align: center;
+            margin: 0px auto;
+            font-size: 5vw;
+            line-height: 11.25vw;
+            color: #fff;
+        }
+
+        .init-menu{
+            background:#F0F0F0;
+            padding: 3.1vw 2.8vw 0 2.8vw;
+        }
+
+        .init-menu .roles{
+            background: #fff;
+            display: flex;
+            display: -webkit-flex;
+            height: 70.625vw;
+            margin-bottom: 1.4vw;
+        }
+
+        .init-menu .roles .title{
+            display: flex;
+            display: -webkit-flex;
+            box-sizing: border-box;
+            height: 100%;
+            border-right: 1px solid #D9D9D9;
+            /* flex: 1, 0, 20.5%; */
+            width:20.5%;
+            -webkit-writing-mode: vertical-rl;
+            writing-mode: vertical-rl;
+            align-items: center;
+        }
+        
+        .init-menu .roles .title span{
+            font-size: 5vw;
+            height: 100%;
+            text-align: center;
+            display: block;  
+        }
+
+        .init-menu .roles .detials{
+          box-sizing: border-box;
+          width:79.5%;
+          height: 100%;
+          background: #fbfbfb;
+        }
+
+        .init-menu .roles .detials .role-group{
+          width: 100%;
+          box-sizing: border-box;
+          border-bottom: 1px solid #D9D9D9;
+          height: 61.25vw;
+          overflow: hidden;
+        }
+
+        .init-menu .roles .detials .role-group ul{
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .init-menu .roles .detials .role-group ul li{
+          box-sizing: border-box;
+          width: 50%;
+          font-size: 3.75vw;
+          padding: 3.44vw 0;
+          text-align: center;
+        }
+        .init-menu .roles .detials .setting{
+          height: 9.375vw;
+          width: 100%;
+          text-align: center;
+        }
+        .init-menu .roles .detials .setting a{
+          text-decoration: none;
+          line-height: 9.375vw;
+          font-size: 3.9vw;
+          color:#56C5E0;
+        }
+
+        .init-menu .words-group{
+          padding: 0 4.375vw;
+          margin-bottom: 1.4vw;
+          background: #fff;
+        }
+
+        .init-menu .words-group input{
+          border: none;
+          outline: none;
+          border-bottom: 1px solid #D9D9D9;
+          width: 100%;
+          padding: 4.2vw 0;
+          font-size: 3.9vw;
+          margin-bottom: 4.375vw;
+        }
+
+        .init-menu .game-setting{
+          background: #fff;
+          position: relative;
+          height: 16vw;
+          font-size: 0;
+          margin-bottom: 1.4vw;
+        }
+
+        .init-menu .game-setting .number{
+          position: absolute;
+          top: 5vw;
+          left: 5vw;
+        }
+
+        .init-menu .game-setting .number input{
+          width: 9.375vw;
+          font-size: 4.2vw;
+          padding: 1.25vw 1.6vw;
+          background: #F4F4F4;
+          color: #FAB344;
+          border: none;
+        }
+
+        .init-menu .game-setting .number span{
+          font-size: 4.2vw;
+        }
+
+        .init-menu .game-setting .number span:nth-of-type(1){
+          margin-right: 4.2vw;
+        }
+
+        .init-menu .game-setting .number span:nth-of-type(2){
+          margin-left: 4.2vw;
+        }
+
+        .init-menu .begin{
+          width: 100%;
+          padding:3.75vw 0;
+          text-align: center;
+          font-size: 5.625vw;
+          color: #fff;
+          background: #F9B343;
+          border: none;
+        }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="header">
+      <a href="javascript:;" class="header-back">
+        <img src="img/back.png" width="36" height="36">
+      </a>
+      <h1 class="title">参数设置</h1>
+      <a href="javascript:;" class="header-help">
+        <img src="img/help.png" width="36" height="36">
+      </a>
+    </div>
+    <div class="init-menu">
+      <div class="roles">
+        <div class="title">
+          <span>玩家配比</span>
+        </div>
+        <div class="detials">
+          <div class="role-group">
+            <ul id="card-box">
+              <li>水&#12288;民1人</li>
+              <li>水&#12288;民1人</li>
+              <li>杀&#12288;手1人</li>
+              <li>杀&#12288;手1人</li>
+              <li>水&#12288;民1人</li>
+              <li>水&#12288;民1人</li>
+              <li>杀&#12288;手1人</li>
+              <li>杀&#12288;手1人</li>
+              <li>水&#12288;民1人</li>
+              <li>水&#12288;民1人</li>
+              <li>杀&#12288;手1人</li>
+              <li>杀&#12288;手1人</li>
+            </ul>
+          </div>
+          <div class="setting">
+            <a href="javascript:;">
+              <span>点击设置</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="words-group">
+        <div class="people-word">
+          <input type="text" name="peopleWord" placeholder="水民词组">
+        </div>
+        <div class="killer-word">
+          <input type="text" name="killWord" placeholder="幽灵词组">
+        </div>
+      </div>
+      <div class="game-setting">
+        <div class="number">
+          <span>玩家人数</span>
+          <input id="num" type="text" name="num" value="18">
+          <span>人</span>
+        </div>
+      </div>
+      <button id="btnGo" class="begin" type="button">去发牌</button>
+    </div>
+  </div>
+  <script src="main_init.js"></script>
+</body>
+</html>

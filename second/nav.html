@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta naem="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <style type="text/css">
+    body {
+        background: rgba(0, 0, 0, .1);
+        font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    }
+
+    .content {
+        background: #17DBE1;
+    }
+
+    .header {
+        position: relative;
+        height: 11.25vw;
+        width: 100%;
+    }
+
+    .header .header-memu {
+        top: 2.8vw;
+        left: 3.4vw;
+        display: inline-block;
+        position: absolute;
+        z-index: 10;
+    }
+
+    .header .header-memu img {
+        width: 5.6vw;
+        /*height: 5.6vw;*/
+        vertical-align: middle;
+    }
+
+    .body {
+        padding-top: 4vw;
+        background: #f0f0f0;
+    }
+
+    .body .lastgame {
+        position: relative;
+        margin: 0 auto;
+        width: 88.75vw;
+        height: 18.125vw;
+        background: #fff;
+        color: #9a9a9a;
+        text-align: center;
+        font-size: 5vw;
+        line-height: 18.125vw;
+        border: 1px solid #c9c9c9;
+    }
+
+    .body .lastgame img {
+        position: absolute;
+        right: 2.2vw;
+        top: 6vw;
+        height: 6.25vw;
+        width: 3.75vw;
+    }
+
+    .body .version {
+        position: relative;
+        width: 88.75vw;
+        min-height: 121.25vw;
+        margin: 3.75vw auto 0 auto;
+        border: 1px solid #c9c9c9;
+        background: #fff;
+    }
+
+    .body .version .title {
+        height: 14vw;
+        line-height: 14vw;
+        text-align: center;
+        font-size: 5.3vw;
+        color: #fdb51d;
+    }
+
+    .body .version .line {
+        width: 100%;
+        height: 1px;
+        background: #fdb51d;
+        margin-bottom: 4.69vw;
+    }
+
+    .body .version .list .game .name {
+        position: relative;
+        width: 72.3vw;
+        height: 21vw;
+        background: #64d1eb;
+        color: #fff;
+        line-height: 21vw;
+        font-size: 4.69vw;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .body .version .list .game .name img {
+        position: absolute;
+        width: 4.375vw;
+        height: 8.6vw;
+        right: -6.875vw;
+        top: 6.875vw;
+    }
+    .body .version .list .game .text{
+      height: 12.2vw;
+      line-height: 12.2vw;
+      text-align:center;
+      font-size: 3.75vw;
+      color: #787878;
+    }
+    .body .version .nav{
+      margin:0 auto;
+      width: 25vw;
+    }
+    .body .version .nav li{
+      display: inline-block;
+      width:2.81vw;
+      height: 2.81vw;
+      border-radius: 50%;
+      background: #efefef;
+      margin:0 0.7vw;
+    }
+    .body .version .nav .active{
+      background: #17DBE1;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="header">
+            <a href="javascript:;" class="header-memu"><img src="img/矩形 6 拷贝 3.png" width="36" height="36"></a>
+        </div>
+    </div>
+    <div class="body">
+        <div class="lastgame">
+            <div class="text">
+                上次游戏:捉鬼猜词版
+            </div>
+            <img src="img/right.png">
+        </div>
+        <div class="version">
+            <h1 class="title">捉鬼游戏</h1>
+            <div class="line"></div>
+            <ul class="list">
+                <li class="game">
+                    <div class="name">
+                      <span>简化版</span>
+                      <img src="img/rightyellow.png">
+                    </div>
+                    <p class="text">有1133个用户正在玩此游戏</p>
+                </li>
+                <li class="game">
+                    <div class="name">猜词版</div>
+                    <p class="text">有1133个用户正在玩此游戏</p>
+                </li>
+                <li class="game">
+                    <div class="name">白痴版</div>
+                    <p class="text">有1133个用户正在玩此游戏</p>
+                </li>
+            </ul>
+            <ul class="nav">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script src="http://127.0.0.1:8080/main_nav.js"></script>
+</body>
+
+</html>
