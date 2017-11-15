@@ -1,14 +1,25 @@
 var obj_num = document.getElementById('num');
 var cardBox = document.getElementById('card-box');
+var error = document.getElementById('error');
+var errorText = document.getElementById('text');
+var confirmBtn = document.getElementById('confirmBtn');
 var playerList = [];
+
+confirmBtn.onclick = function () {
+  error.style.display = 'none';
+  obj_num.value = '';
+}
+
 obj_num.onblur = function() {
   let num = this.value;
   num = Number.parseInt(num);
   let reg = /[0-9]{1,2}/g;
   if (!reg.test(num)){
-    console.log('please use number!');
+    errorText.innerHTML = 'please use number!';
+    error.style.display = 'block';
   } else if (num < 4 || num > 18) {
-    console.log('number must bigger than 4 and smaller than 18');
+    errorText.innerHTML = 'number must bigger than 4 and smaller than 18';
+    error.style.display = 'block';
   } else {
     playerList = sendCards(num);
     initCardBox(playerList);

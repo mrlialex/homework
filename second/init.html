@@ -190,6 +190,42 @@
           background: #F9B343;
           border: none;
         }
+        #error{
+          display: none;
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(0, 0, 0, .3);
+        }
+
+        #error .confirm{
+          position: relative;
+          width:60%;
+          height: 30vw;
+          background: rgb(238, 225, 51);
+          margin: 0 auto;
+          margin-top: 50%;
+          transform: translateY(15vw);
+        }
+
+        #error .confirm #text{
+          padding-top: 10vw;
+          text-align: center;
+          font-size: 3.75vw;
+          margin-bottom: 5vw;
+        }
+
+        #error .confirm .btn{
+          display: block;
+          padding: 0 5vw;
+          background: rgb(209, 5, 5);
+          font-size: 4vw;
+          border: none;
+          margin: 0 auto;
+          color: #fff;
+        }
   </style>
 </head>
 <body>
@@ -248,6 +284,12 @@
         </div>
       </div>
       <button id="btnGo" class="begin" type="button">去发牌</button>
+    </div>
+  </div>
+  <div id="error">
+    <div class="confirm">
+      <p id="text">请输入正确的玩家数量</p>
+      <button id="confirmBtn" class="btn" type="button">确认</button>
     </div>
   </div>
   <script src="main_init.js"></script>
