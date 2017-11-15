@@ -7,6 +7,14 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Hello world</h1>
+  <a id="nav" href="javascript:;">导航页面</a>
+  <script>
+    var nav = document.getElementById('nav');
+    nav.onclick = function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      window.location.href += 'sencond/nav';
+    }
+  </script>
 </body>
 </html>
