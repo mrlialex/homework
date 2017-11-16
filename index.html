@@ -7,13 +7,21 @@
   <title>Document</title>
 </head>
 <body>
-  <a id="nav" href="javascript:;">导航页面</a>
+  <a id="1" href="javascript:;">任务2</a>
+  <a id="2" href="javascript:;">任务3</a>
   <script>
-    var nav = document.getElementById('nav');
-    nav.onclick = function(e) {
+    var task1 = document.getElementById('1');
+    var task2 = document.getElementById('2');
+    task1.onclick = function(e) {
       e.stopPropagation();
       e.preventDefault();
       window.location.href += 'second/nav';
+    }
+
+    task2.onclick = function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      window.location.href += 'second/init';
     }
   </script>
 </body>

@@ -3,14 +3,23 @@ var cardBox = document.getElementById('card-box');
 var error = document.getElementById('error');
 var errorText = document.getElementById('text');
 var confirmBtn = document.getElementById('confirmBtn');
+var btnGo = document.getElementById('btnGo');
 var playerList = [];
+var flag = true;
 
 confirmBtn.onclick = function () {
   error.style.display = 'none';
   obj_num.value = '';
 }
 
-obj_num.onblur = function() {
+btnGo.onclick = function(){
+  let str = window.localStorage.getItem('hasList');
+  if (str) {
+    window.location.href = 'roles.html';
+  }
+}
+
+obj_num.onblur = function () {
   let num = this.value;
   num = Number.parseInt(num);
   let reg = /[0-9]{1,2}/g;
@@ -24,7 +33,16 @@ obj_num.onblur = function() {
     playerList = sendCards(num);
     initCardBox(playerList);
     console.log(playerList);
+    store(playerList);
   }
+}
+
+function store (list) {
+  let arr = list.toString();
+  console.log(arr);
+  window.localStorage.clear();
+  window.localStorage.setItem('playerList', arr);
+  window.localStorage.setItem('hasList', true);
 }
 
 function initCardBox (list) {
