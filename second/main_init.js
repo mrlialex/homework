@@ -76,9 +76,7 @@ function sendCards (playerNumber) {
     initArr.push(3);
   }
 
-  newArr = shuffle(initArr);
-
-  return newArr;
+  return initArr;
 }
 
 function shuffle (arr) {
