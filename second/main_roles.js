@@ -26,7 +26,7 @@ var len = playerList.length;
 var imgList = ['police.png', 'citizen.png', 'killer.png'];
 var wordList = ['警察', '平民', '杀手'];
 var cardOrder = 1;
-var showFlag = false;
+var showFlag = false; //用于角色
 var turnFlag = false;
 
 boxInit(playerList);
