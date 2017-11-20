@@ -91,6 +91,7 @@
             padding: 14.2vw 7.6vw 30vw 6.4vw;
             font-size: 0px;
             overflow: hidden;
+            min-height: 100vh;
         }
 
         .box .card {
@@ -100,7 +101,7 @@
             margin-right: 11vw;
         }
 
-        .box .zeromargin {
+        .box .card:nth-of-type(3n){
             margin-right: 0;
         }
 
@@ -132,6 +133,7 @@
         }
 
         .box .card .skill {
+            visibility: hidden;
             margin-top: 3.3vw;
         }
 
@@ -150,6 +152,9 @@
             margin-right: 0px;
         }
 
+        .box .card:hover .skill{
+            visibility: visible;
+        }
         .action {
             position: fixed;
             padding-top: 6.5vw;
@@ -184,8 +189,8 @@
             <a href="javascript:;" class="notice-next"><img src="img/next.png" width="52" height="52"></a>
             <span class="confirm">点击得票数人最多的头像</span>
         </div>
-        <div class="box">
-            <div class="card">
+        <div id="box" class="box">
+            <div id="0" class="card">
                 <div class="player">
                     <p class="role">水民</p>
                     <p class="num">1号</p>
@@ -205,7 +210,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="card">
+            <div id="1" class="card">
                 <div class="player">
                     <p class="role">水民</p>
                     <p class="num">1号</p>
@@ -225,7 +230,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="card zeromargin">
+            <div id="2" class="card">
                 <div class="player">
                     <p class="role">水民</p>
                     <p class="num">2号</p>
@@ -245,134 +250,14 @@
                     </li>
                 </ul>
             </div>
-            <div class="card">
-                <div class="player">
-                    <p class="role">水民</p>
-                    <p class="num">3号</p>
-                </div>
-                <ul class="skill">
-                    <li>
-                        <img src="img/knife.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/fangdajing.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/mubiao.gif" width="30" height="30">
-                    </li>
-                    <li class="marginclear">
-                        <img src="img/shizi.gif" width="30" height="30">
-                    </li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="player">
-                    <p class="role">水民</p>
-                    <p class="num">1号</p>
-                </div>
-                <ul class="skill">
-                    <li>
-                        <img src="img/knife.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/fangdajing.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/mubiao.gif" width="30" height="30">
-                    </li>
-                    <li class="marginclear">
-                        <img src="img/shizi.gif" width="30" height="30">
-                    </li>
-                </ul>
-            </div>
-            <div class="card zeromargin">
-                <div class="player">
-                    <p class="role">水民</p>
-                    <p class="num">1号</p>
-                </div>
-                <ul class="skill">
-                    <li>
-                        <img src="img/knife.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/fangdajing.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/mubiao.gif" width="30" height="30">
-                    </li>
-                    <li class="marginclear">
-                        <img src="img/shizi.gif" width="30" height="30">
-                    </li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="player">
-                    <p class="role">水民</p>
-                    <p class="num">1号</p>
-                </div>
-                <ul class="skill">
-                    <li>
-                        <img src="img/knife.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/fangdajing.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/mubiao.gif" width="30" height="30">
-                    </li>
-                    <li class="marginclear">
-                        <img src="img/shizi.gif" width="30" height="30">
-                    </li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="player">
-                    <p class="role">水民</p>
-                    <p class="num">1号</p>
-                </div>
-                <ul class="skill">
-                    <li>
-                        <img src="img/knife.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/fangdajing.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/mubiao.gif" width="30" height="30">
-                    </li>
-                    <li class="marginclear">
-                        <img src="img/shizi.gif" width="30" height="30">
-                    </li>
-                </ul>
-            </div>
-            <div class="card zeromargin">
-                <div class="player">
-                    <p class="role">水民</p>
-                    <p class="num">1号</p>
-                </div>
-                <ul class="skill">
-                    <li>
-                        <img src="img/knife.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/fangdajing.gif" width="30" height="30">
-                    </li>
-                    <li>
-                        <img src="img/mubiao.gif" width="30" height="30">
-                    </li>
-                    <li class="marginclear">
-                        <img src="img/shizi.gif" width="30" height="30">
-                    </li>
-                </ul>
-            </div>
         </div>
         <div class="action">
-            <div class="kill">
+            <div id="kill" class="kill">
                 投死
             </div>
         </div>
-        <video src="sound/财富自由.mp3"></video>
     </div>
+    <script src="main_vote.js"></script>
 </body>
 
 </html>

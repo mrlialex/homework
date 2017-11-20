@@ -34,6 +34,8 @@ boxInit(playerList);
 btn.onclick = function () {
   if (turnFlag) {
     console.log('GAME BEGIN');
+    window.localStorage.setItem('playerList', playerList.toString());
+    window.location.href = 'daily.html';
     return false;
   }
   if (showFlag && cardOrder == len) {
@@ -69,10 +71,10 @@ function creatCard(roleNum,index) {
 }
 
 function showRole (order) {
+  cardInit(order);
   if (showFlag) {
     playerRole.style.display = 'none';
     roleImg.style.display = 'block';
-    cardInit(order);
   } else {
     playerRole.style.display = 'block';
     roleImg.style.display = 'none';

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <style>
+  body {
+      background: rgba(0, 0, 0, .1);
+      font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  }
+
+  .content {
+      background: #29bde0;
+  }
+
+  .header {
+      position: relative;
+      height: 11.25vw;
+      width: 100%;
+      border-bottom:1px solid #74d4eb;
+  }
+
+  .header .header-back,
+  .header-help {
+      top: 2.8vw;
+      display: inline-block;
+      position: absolute;
+      z-index: 10;
+  }
+
+  .header .header-back img{
+      width: 3.75vw;
+      height: 5.6vw;
+      vertical-align: middle;
+  }
+
+  .header .header-help img{
+      width: 5.6vw;
+      height: 5.6vw;
+      vertical-align: middle;
+  }
+
+  .header .header-back {
+      left: 3.4vw;
+  }
+
+  .header .header-help {
+      right: 3.4vw;
+  }
+
+  .header .title {
+      text-align: center;
+      margin: 0px auto;
+      font-size: 5vw;
+      line-height: 11.25vw;
+      color: #fff;
+  }
+
+  .daily {
+    padding: 5.5vw 1.4vw 0 1.4vw;
+    min-height: 94vh;
+    background: #F0F0F0;
+    padding-bottom: 24.2vw;
+  }
+  .daily .day {
+    border: 1px solid #C9C9C9;
+    text-align: center;
+    background: #fff;
+    margin-bottom: 1.8vw;
+  }
+  .daily .day .title{
+    height: 13.44vw;
+    width:100%;
+    font-size: 4.5vw;
+    line-height: 13.44vw;
+    border-bottom: 1px solid #C9C9C9;
+    color: #17BDE2;
+    margin-bottom: 8vw;
+  }
+  .daily .day ul li{
+    width: 100%;
+    height: 11.88vw;
+    color: #fff;
+    background: #00A6C9;
+    margin-bottom: 3vw;
+    font-size: 4.2vw;
+    line-height: 11.88vw;
+  }
+
+  .menu{
+      position: fixed;
+      bottom: 0;
+      z-index: 10;
+      padding: 0 3.75vw;
+      width: 100vw;
+      height: 24.2vw;
+      background: rgba(41,189,223, .5)
+  }
+  .menu .btn{
+      font-size: 5.625vw;
+      padding: 3.75vw 8.75vw;
+      color: #fff;
+      border: none;
+      outline: none;
+      border-radius: 3vw;
+      margin-top:5.5vw;
+  }
+  .menu .btn-lf{
+      background: #FBB335;
+      float:left;
+  }
+  .menu .btn-rt{
+      background:#FBB335;
+      float:right;
+  }
+  #error{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .3);
+  }
+
+  #error .confirm{
+    position: relative;
+    width:60%;
+    height: 30vw;
+    background: rgb(238, 225, 51);
+    margin: 0 auto;
+    margin-top: 50%;
+    transform: translateY(15vw);
+  }
+
+  #error .confirm #text{
+    padding-top: 10vw;
+    text-align: center;
+    font-size: 3.75vw;
+    margin-bottom: 5vw;
+  }
+
+  #error .confirm .btn{
+    display: block;
+    padding: 0 5vw;
+    background: rgb(209, 5, 5);
+    font-size: 4vw;
+    border: none;
+    margin: 0 auto;
+    color: #fff;
+  }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="header">
+      <a href="javascript:;" class="header-back">
+        <img src="img/back.png" width="36" height="36">
+      </a>
+      <h1 class="title">法官日记</h1>
+      <a href="javascript:;" class="header-help">
+        <img src="img/help.png" width="36" height="36">
+      </a>
+    </div>
+    <div id="daily" class="daily">
+      <div class="day">
+        <p class="title">
+          第一天
+        </p>
+        <ul>
+          <li>杀手杀人</li>
+          <li>亡灵发表遗言</li>
+          <li>玩家轮流发言</li>
+          <li>全民投票</li>
+        </ul>
+      </div>
+    </div>
+    <div class="menu">
+      <button class="btn btn-lf" type="button">结束游戏</button>
+      <button class="btn btn-rt" type="button">法官日志</button>
+    </div>
+  </div>
+  <div id="error">
+    <div class="confirm">
+      <p id="text">请输入正确的玩家数量</p>
+      <button id="confirmBtn" class="btn" type="button">确认</button>
+    </div>
+  </div>
+  <script src="main_daily.js"></script>
+</body>
+</html>

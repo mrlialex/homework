@@ -122,6 +122,7 @@
             background: #fff;
             font-size: 0;
             line-height: 5.9vw;
+            min-height: 50vw;
         }
         .process span{
             font-size: 3.75vw;
@@ -187,9 +188,9 @@
             <div class="winner">
                 <div class="reword-img">
                     <img src="img/reward.png">
-                    <p>卧底胜利</p>
+                    <p id="resText">卧底胜利</p>
                 </div>
-                <div class="winner-msg">
+                <div id="resDesc" class="winner-msg">
                     太棒了！你知道吗？在捉鬼游戏中只有20%的卧底取得游戏最终的胜利哦！
                 </div>
             </div>
@@ -218,7 +219,7 @@
                         </li>
                         <li>
                             <span class="role">医&#12288;生</span>
-                            <span class="num">1人</span>
+                            <span class="num">0人</span>
                         </li>
                     </ul>
                 </div>
@@ -234,7 +235,7 @@
         </div>
         <div class="line"></div>
         <div class="process">
-            <ul>
+            <ul id="dailyBox">
                 <li>
                     <h1 class="date">第1天</h1>
                     <span class="time">0小时07分</span>
@@ -284,6 +285,7 @@
             <button class="btn btn-yellow" type="button">上传并分享</button>
         </div>
     </div>
+    <script src="main_result.js"></script>
 </body>
 
 </html>

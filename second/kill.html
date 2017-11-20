@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta naem="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <style type="text/css">
+    body {
+      background: rgba(0, 0, 0, .1);
+      font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+    }
+
+    .content {
+      background: #17DBE1;
+    }
+
+    .header {
+      position: relative;
+      height: 11.25vw;
+      width: 100%;
+    }
+
+    .header .header-memu,
+    .header-close {
+      top: 2.8vw;
+      display: inline-block;
+      position: absolute;
+      z-index: 10;
+    }
+
+    .header .header-memu img,
+    .header-close img {
+      width: 5.6vw;
+      /*height: 5.6vw;*/
+      vertical-align: middle;
+    }
+
+    .header .header-memu {
+      left: 3.4vw;
+    }
+
+    .header .header-close {
+      right: 3.4vw;
+    }
+
+    .header .title {
+      text-align: center;
+      margin: 0px auto;
+      font-size: 5vw;
+      line-height: 11.25vw;
+      color: #fff;
+    }
+
+    .notice {
+      position: relative;
+      height: 12.5vw;
+      width: 100%;
+      background: rgba(255, 255, 255, .3);
+      overflow: visible;
+    }
+
+    .notice .text {
+      position: relative;
+      left: 7.3vw;
+      font-size: 3.7vw;
+      line-height: 12.5vw;
+    }
+
+    .notice .notice-next {
+      position: absolute;
+      top: 2vw;
+      right: 2.6vw;
+    }
+
+    .notice .notice-next img {
+      width: 8vw;
+      height: 8vw;
+    }
+
+    .notice .confirm {
+      position: absolute;
+      bottom: -6.9vw;
+      left: 11.25vw;
+      font-size: 3.4vw;
+      color: #fff;
+    }
+
+    .box {
+      padding: 14.2vw 7.6vw 30vw 6.4vw;
+      font-size: 0px;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .box .card {
+      float: left;
+      height: 32.8vw;
+      width: 21.2vw;
+      margin-right: 11vw;
+    }
+
+    .box .card:nth-of-type(3n) {
+      margin-right: 0;
+    }
+
+    .box .card .player {
+      width: 21.2vw;
+      height: 21.2vw;
+      border: 0.8vw solid #fff;
+      cursor: pointer;
+    }
+
+    .box .card .player .role,
+    .num {
+      width: 100%;
+      text-align: center;
+    }
+
+    .box .card .player .role {
+      height: 15.4vw;
+      background: #F6CA75;
+      font-size: 28px;
+      line-height: 15.4vw;
+    }
+
+    .box .card .player .num {
+      height: 4.2vw;
+      background: #81b09a;
+      font-size: 3vw;
+      line-height: 4.2vw;
+    }
+
+    .box .card .skill {
+      visibility: hidden;
+      margin-top: 3.3vw;
+    }
+
+    .box .card .skill li {
+      display: inline-block;
+      margin-right: 0.8vw;
+      cursor: pointer;
+    }
+
+    .box .card .skill li img {
+      width: 4.6vw;
+      height: 4.6vw;
+    }
+
+    .box .card .skill .marginclear {
+      margin-right: 0px;
+    }
+
+    .box .card:hover .skill {
+      visibility: visible;
+    }
+
+    .action {
+      position: fixed;
+      padding-top: 6.5vw;
+      bottom: 0;
+      width: 100%;
+      height: 30vw;
+      background: #17DBE1;
+    }
+
+    .action .kill {
+      margin: 0 auto;
+      width: 76.5vw;
+      height: 13.6vw;
+      text-align: center;
+      font-size: 6vw;
+      line-height: 13.6vw;
+      background: #fdb41b;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="header">
+      <a href="javascript:;" class="header-memu">
+        <img src="img/矩形 6 拷贝 3.png" width="36" height="36">
+      </a>
+      <h1 class="title">杀手杀人</h1>
+      <a href="javascript:;" class="header-close">
+        <img src="img/矩形 10 拷贝.png" width="36" height="36">
+      </a>
+    </div>
+    <div class="notice">
+      <span class="text">杀手请杀人</span>
+      <a href="javascript:;" class="notice-next">
+        <img src="img/next.png" width="52" height="52">
+      </a>
+      <span class="confirm">点击暗杀目标</span>
+    </div>
+    <div id="box" class="box">
+      <div id="0" class="card">
+        <div class="player">
+          <p class="role">水民</p>
+          <p class="num">1号</p>
+        </div>
+        <ul class="skill">
+          <li>
+            <img src="img/knife.gif" width="30" height="30">
+          </li>
+          <li>
+            <img src="img/fangdajing.gif" width="30" height="30">
+          </li>
+          <li>
+            <img src="img/mubiao.gif" width="30" height="30">
+          </li>
+          <li class="marginclear">
+            <img src="img/shizi.gif" width="30" height="30">
+          </li>
+        </ul>
+      </div>
+      <div id="1" class="card">
+        <div class="player">
+          <p class="role">水民</p>
+          <p class="num">1号</p>
+        </div>
+        <ul class="skill">
+          <li>
+            <img src="img/knife.gif" width="30" height="30">
+          </li>
+          <li>
+            <img src="img/fangdajing.gif" width="30" height="30">
+          </li>
+          <li>
+            <img src="img/mubiao.gif" width="30" height="30">
+          </li>
+          <li class="marginclear">
+            <img src="img/shizi.gif" width="30" height="30">
+          </li>
+        </ul>
+      </div>
+      <div id="2" class="card">
+        <div class="player">
+          <p class="role">水民</p>
+          <p class="num">2号</p>
+        </div>
+        <ul class="skill">
+          <li>
+            <img src="img/knife.gif" width="30" height="30">
+          </li>
+          <li>
+            <img src="img/fangdajing.gif" width="30" height="30">
+          </li>
+          <li>
+            <img src="img/mubiao.gif" width="30" height="30">
+          </li>
+          <li class="marginclear">
+            <img src="img/shizi.gif" width="30" height="30">
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="action">
+      <div id="kill" class="kill">
+        杀死
+      </div>
+    </div>
+  </div>
+  <script src="main_kill.js"></script>
+</body>
+
+</html>

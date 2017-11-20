@@ -5,6 +5,7 @@ var errorText = document.getElementById('text');
 var confirmBtn = document.getElementById('confirmBtn');
 var btnGo = document.getElementById('btnGo');
 var playerList = [];
+var roleState = [];
 var flag = true;
 
 confirmBtn.onclick = function () {
@@ -32,17 +33,20 @@ obj_num.onblur = function () {
   } else {
     playerList = sendCards(num);
     initCardBox(playerList);
-    console.log(playerList);
-    store(playerList);
+    storeList(playerList, roleState);
   }
 }
-
-function store (list) {
-  let arr = list.toString();
-  console.log(arr);
+function storeList(playerList, roleState) {
+  let arr1 = playerList.toString();
+  let arr2 = roleState.toString();
   window.localStorage.clear();
-  window.localStorage.setItem('playerList', arr);
-  window.localStorage.setItem('hasList', true);
+  store('playerList', arr1);
+  store('roleState', arr2);
+  store('hasList', true);
+}
+
+function store (item, val) {
+  window.localStorage.setItem(item, val);
 }
 
 function initCardBox (list) {
@@ -76,6 +80,10 @@ function sendCards (playerNumber) {
     initArr.push(3);
   }
 
+  for (let i = 0; i < playerNumber; i++) {
+    //设置存活状态
+    roleState.push(1);
+  }
   return initArr;
 }
 
