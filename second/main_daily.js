@@ -8,6 +8,7 @@ var text = ele('id', 'text');
 var lawerDaily = ele('id', 'lawerDaily');
 var roleBox = ele('id', 'roleBox');
 var moreGame = ele('id', 'moreGame');
+var back = ele('id', 'back');
 var playerList = readStoreList('playerList');
 var roleState = readStoreList('roleState');
 var killList = readStoreList('killList');
@@ -106,7 +107,12 @@ lawerDaily.onclick = function () {
     daily.style.display = 'block';
     roleBox.style.display = 'none';
   }
-  showFlag = !showFlag;
+  showFlag = false;
+}
+
+back.onclick = function () {
+  daily.style.display = 'block';
+  roleBox.style.display = 'none';
 }
 
 function createDaily (date) {
