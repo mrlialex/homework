@@ -116,6 +116,58 @@
       background:#FBB335;
       float:right;
   }
+
+  .role-box {
+    display: none;
+    height: 167vw;
+    width: 100%;
+    overflow: auto;
+    padding: 10vw 7vw 23.5vw 7vw;
+  }
+
+  .role-box ul{
+    height: inherit;
+    width:100%;
+  }
+  .role-box ul li {
+    float:left;
+    margin-right:11vw;
+    margin-bottom: 11.25vw;
+  }
+
+  .role-box ul li:nth-of-type(3n) {
+    margin-right: 0;
+  }
+
+  .role-box ul li .game-role{
+    box-sizing: border-box;
+    width: 21.25vw;
+    height: 21.25vw;
+    border: 0.7vw solid #fff;
+    background:#5BBDE9;
+    text-align: center;
+  }
+  
+  .role-box ul li .game-role p {
+    font-size: 3.125vw;
+  }
+
+  .role-box ul li .game-role .cardRole {
+    height: 15.625vw;
+    line-height: 15.625vw;
+    width: 100%;
+    background: #f5c97b;
+    color: #000;
+  } 
+
+  .role-box ul li .game-role .cardNum {
+    height: 4.225vw;
+    line-height: 4.225vw;
+    width: 100%;
+    background: #83b09a;
+    color: #fff;
+  }
+
   #error{
     display: none;
     position: fixed;
@@ -178,9 +230,43 @@
         </ul>
       </div>
     </div>
+    <div id="roleBox" class="role-box">
+      <ul id="roleContainer">
+        <li>
+          <div class="game-role">
+            <p class="cardRole">杀手</p>
+            <p class="cardNum">1号</p>
+          </div>
+        </li>
+        <li>
+          <div class="game-role">
+            <p class="cardRole">杀手</p>
+            <p class="cardNum">1号</p>
+          </div>
+        </li>
+        <li>
+          <div class="game-role">
+            <p class="cardRole">杀手</p>
+            <p class="cardNum">1号</p>
+          </div>
+        </li>
+        <li>
+          <div class="game-role">
+            <p class="cardRole">杀手</p>
+            <p class="cardNum">1号</p>
+          </div>
+        </li>
+        <li>
+          <div class="game-role">
+            <p class="cardRole">杀手</p>
+            <p class="cardNum">1号</p>
+          </div>
+        </li>
+      </ul>
+    </div>
     <div class="menu">
-      <button class="btn btn-lf" type="button">结束游戏</button>
-      <button class="btn btn-rt" type="button">法官日志</button>
+      <button id="moreGame" class="btn btn-lf" type="button">结束游戏</button>
+      <button id="lawerDaily" class="btn btn-rt" type="button">法官日志</button>
     </div>
   </div>
   <div id="error">
@@ -189,6 +275,7 @@
       <button id="confirmBtn" class="btn" type="button">确认</button>
     </div>
   </div>
+  <script src="public.js"></script>
   <script src="main_daily.js"></script>
 </body>
 </html>

@@ -1,16 +1,25 @@
 //使用Json来改变，day：1 step： 0123
 //{"day":1,"step":0}
 
-var date = {};
-var dayList = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
 var daily = ele('id', 'daily');
 var confirm = ele('id', 'error');
 var confirmBtn = ele('id', 'confirmBtn');
 var text = ele('id', 'text');
+var lawerDaily = ele('id', 'lawerDaily');
+var roleBox = ele('id', 'roleBox');
+var moreGame = ele('id', 'moreGame');
+var playerList = readStoreList('playerList');
+var roleState = readStoreList('roleState');
+var killList = readStoreList('killList');
+var date = {};
+var dayList = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
 var arrDays, color = '#81b09a';
+var showFlag = true;
 
 
 init();
+boxInit(playerList);
+
 
 function init () {
   date = readStore('daily') ? JSON.parse(readStore('daily')) : {"day" : 0, "step" : 0};
@@ -26,10 +35,35 @@ function init () {
   }
 }
 
+moreGame.onclick = function () {
+  clear();
+  window.location.href = 'init.html';
+}
+
 for (let i = 0; i <= date.day; i++) {
   arrDays[i].onclick = function (e) {
     if (i !== date.day) return false;
     let node = e.target.nodeName.toLowerCase();
+    if (node === 'li' && parseInt(e.target.id) > date.step) {
+      text.innerHTML = '还没到这个步骤哦!'
+      confirm.style.display = 'block'
+    }
+    if (node === 'li' && parseInt(e.target.id) < date.step ) {
+      switch (parseInt(e.target.id)) {
+        case 0:
+        text.innerHTML = ( killList[date.day] + 1 ) + '号玩家被杀了!！他的身份是' + wordList[playerList[killList[date.day]] - 1];
+        confirm.style.display = 'block'
+        break;
+        case 1:
+        text.innerHTML = '那个被杀人的人说：我好冤枉啊!'
+        confirm.style.display = 'block'
+        break;
+        case 2:
+        text.innerHTML = '群众们各自发表言论，BB了半天还是决定投票!'
+        confirm.style.display = 'block'
+        break;
+      }
+    }
     if (node === 'li' && parseInt(e.target.id) === date.step) {
       date.step++;
       if(date.step === 4) {
@@ -64,26 +98,42 @@ confirmBtn.onclick = function () {
   window.location.href = 'daily.html';
 }
 
+lawerDaily.onclick = function () {
+  if (showFlag) {
+    daily.style.display = 'none';
+    roleBox.style.display = 'block';
+  } else {
+    daily.style.display = 'block';
+    roleBox.style.display = 'none';
+  }
+  showFlag = !showFlag;
+}
+
 function createDaily (date) {
   let days = date.day;
   let len = date.step;
   let arr = '';
   for (let i = 0; i <= days; i++) {
-    arr += '<div class="day"><p class="title">第' + dayList[i] +'天</p><ul><li id="0">杀手杀人</li><li id="1">亡灵发表遗言</li><li  id="2">玩家轮流发言</li><li id="3">全民投票</li></ul></div>'
+    arr += '<div class="day"><p class="title">第' + dayList[i] +'天</p><ul><li id="0">杀手杀人(点击查看死者)</li><li id="1">亡灵发表遗言</li><li  id="2">玩家轮流发言</li><li id="3">全民投票</li></ul></div>'
   }
   daily.innerHTML = arr;
 }
 
-function ele (type, val) {
-  if (type === 'id') return document.getElementById(val);
-  if (type === 'tag') return document.getElementsByTagName(val);
-  if (type === 'class') return document.getElementsByClassName(val);
+function boxInit(list) {
+  let temp = '';
+  let len = list.length;
+  for (let i = 0; i < len; i++) {
+    temp += creatCard(list[i], i);
+  }
+  roleContainer.innerHTML = temp;
+  let roleCards = roleBox.getElementsByClassName('cardRole');
+  roleState.forEach( function(item, index, arr) {
+    if (!item) {
+      roleCards[index].style.background = color;
+    }
+  })
 }
 
-function store (item, val) {
-  window.localStorage.setItem(item, val);
-}
-
-function readStore (item) {
-  return window.localStorage.getItem(item);
+function creatCard(roleNum, index) {
+  return '<li><div class="game-role"><p class="cardRole">' + wordList[roleNum - 1] + '</p><p class="cardNum">' + (index + 1) + '号</p></div></li>';
 }

@@ -1,46 +1,11 @@
-function ele(id) {
-  return document.getElementById(id);
-}
-
-function initState() {
-  let tempArr = readStore('roleState');
-  let tempList = tempArr.split(',');
-  tempList.forEach(item => {
-    roleState.push(parseInt(item));
-  })
-  console.log(roleState);
-}
-
-function initPlayerList() {
-  let arr = window.localStorage.getItem('playerList');
-  arr.split(',').forEach(function (item) {
-    playerList.push(parseInt(item));
-  });
-}
-
-function initVoteList() {
-  let arr = window.localStorage.getItem('voteList');
-  if (arr) {
-    arr.split(',').forEach(function (item) {
-      voteList.push(parseInt(item));
-    });
-  } else {
-      voteList = []
-  }
-}
-
-var box = ele('box');
-var kill = ele('kill');
+var box = ele('id', 'box');
+var kill = ele('id', 'kill');
 var quitRole = -1;
 var arrCard, arrSkill, len;
-var roleState = [];
-var playerList = [];
-var wordList = ['警察', '平民', '杀手'];
-var voteList = [];
+var roleState = readStoreList('roleState');
+var playerList = readStoreList('playerList');
+var voteList = readStoreList('voteList') || [];
 
-initPlayerList();
-initVoteList();
-initState();
 initBox(playerList);
 
 box.onclick = function (e) {
@@ -55,9 +20,9 @@ box.onclick = function (e) {
 kill.onclick = function () {
   if (!roleState[quitRole]) return false;
   roleState[quitRole] = 0;
-  storeList(roleState);
+  storeList('roleState', roleState);
   voteList.push(quitRole);
-  storeVoteList(voteList);
+  storeList('voteList', voteList);
   judge(playerList, roleState);
   if(!readStore('result')){
     window.location.href = 'daily.html';
@@ -117,22 +82,4 @@ function initBox(list) {
   arrCard = document.getElementsByClassName('card');
   arrSkill = document.getElementsByClassName('skill');
   len = arrCard.length;
-}
-
-function storeList(list) {
-  let temp = list.toString();
-  store('roleState', temp);
-}
-
-function storeVoteList(list) {
-  let temp = list.toString();
-  store('voteList', temp);
-}
-
-function store(item, val) {
-  window.localStorage.setItem(item, val);
-}
-
-function readStore(item) {
-  return window.localStorage.getItem(item);
 }

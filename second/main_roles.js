@@ -1,30 +1,16 @@
-function getEle (id) {
-  return document.getElementById(id);
-}
-
-function initList() {
-  let arr =  window.localStorage.getItem('playerList');
-  let listout = []
-  let list = arr.split(',').forEach(function (item) {
-    listout.push(parseInt(item));
-  });
-  return shuffle(listout);
-}
-var roleImg = getEle('roleImg');
-var playerRole = getEle('playerRole');
-var roleAvatar = getEle('roleAvatar');
-var roleText = getEle('roleText');
-var btn = getEle('btn')
-var order = getEle('order');
-var roleView = getEle('roleView');
-var roleBox = getEle('roleBox');
-var title = getEle('title');
-var roleContainer = getEle('roleContainer');
-var playerList = initList();
+var roleImg = ele('id', 'roleImg');
+var playerRole = ele('id', 'playerRole');
+var roleAvatar = ele('id', 'roleAvatar');
+var roleText = ele('id', 'roleText');
+var btn = ele('id', 'btn');
+var order = ele('id', 'order');
+var roleView = ele('id', 'roleView');
+var roleBox = ele('id', 'roleBox');
+var title = ele('id', 'title');
+var roleContainer = ele('id', 'roleContainer');
+var playerList = shuffle( readStoreList('playerList') );
 var len = playerList.length;
-//警察1 平民2 杀手3
-var imgList = ['police.png', 'citizen.png', 'killer.png'];
-var wordList = ['警察', '平民', '杀手'];
+
 var cardOrder = 1;
 var showFlag = false; //用于角色
 var turnFlag = false;
@@ -33,15 +19,13 @@ boxInit(playerList);
 
 btn.onclick = function () {
   if (turnFlag) {
-    console.log('GAME BEGIN');
-    window.localStorage.setItem('playerList', playerList.toString());
+    storeList('playerList', playerList);
     window.location.href = 'daily.html';
     return false;
   }
   if (showFlag && cardOrder == len) {
     beforeGame(playerList);
     turnFlag = true;
-    console.log('yo');
     return false;
   }
   if (showFlag) {
@@ -95,14 +79,3 @@ function beforeGame (list) {
   title.innerHTML = '法官日记';
 }
 
-function shuffle(arr) {
-  let _arr = arr.slice();
-  for (let i = _arr.length; i--;) {
-    let j = Math.floor(Math.random() * (i + 1));
-    let temp = _arr[i];
-    _arr[i] = _arr[j];
-    _arr[j] = temp;
-  }
-
-  return _arr;
-}

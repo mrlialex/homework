@@ -1,47 +1,14 @@
-function ele(id) {
-  return document.getElementById(id);
-}
-
-function initState() {
-  let tempArr = readStore('roleState');
-  let tempList = tempArr.split(',');
-  tempList.forEach(item => {
-    roleState.push(parseInt(item));
-  })
-  console.log(roleState);
-}
-
-function initPlayerList() {
-  let arr = window.localStorage.getItem('playerList');
-  arr.split(',').forEach(function (item) {
-    playerList.push(parseInt(item));
-  });
-  console.log(playerList);
-}
-
-function initKillList() {
-  let arr = window.localStorage.getItem('killList');
-  if (arr) {
-    arr.split(',').forEach(function (item) {
-      killList.push(parseInt(item));
-    });
-  } else {
-    killList = []
-  }
-}
-
-var box = ele('box');
-var kill = ele('kill');
+var box = ele('id', 'box');
+var kill = ele('id', 'kill');
+var error = ele('id', 'error');
+var text = ele('id', 'text');
+var confirmBtn = ele('id', 'confirmBtn');
 var quitRole = -1;
 var arrCard, arrSkill, len;
-var roleState = [];
-var playerList = [];
-var wordList = ['警察', '平民', '杀手'];
-var killList = [];
+var roleState = readStoreList('roleState');
+var playerList = readStoreList('playerList');
+var killList = readStoreList('killList') || [];
 
-initPlayerList();
-initKillList();
-initState();
 initBox(playerList);
 
 box.onclick = function (e) {
@@ -55,12 +22,21 @@ box.onclick = function (e) {
 }
 
 kill.onclick = function () {
+  if ( playerList[quitRole] === 3 ) {
+    text.innerText = '不可以杀自己哦';
+    error.style.display = 'block';
+    return false;
+  }
   if (!roleState[quitRole]) return false;
   roleState[quitRole] = 0;
-  storeList(roleState);
+  storeList('roleState', roleState);
   killList.push(quitRole);
-  storeKillList(killList);
+  storeList('killList', killList);
   window.location.href = 'daily.html';
+}
+
+confirmBtn.onclick = function () {
+  error.style.display = 'none';
 }
 
 function initSkill() {
@@ -81,22 +57,4 @@ function initBox(list) {
   arrCard = document.getElementsByClassName('card');
   arrSkill = document.getElementsByClassName('skill');
   len = arrCard.length;
-}
-
-function storeList(list) {
-  let temp = list.toString();
-  store('roleState', temp);
-}
-
-function storeKillList(list) {
-  let temp = list.toString();
-  store('killList', temp);
-}
-
-function store(item, val) {
-  window.localStorage.setItem(item, val);
-}
-
-function readStore(item) {
-  return window.localStorage.getItem(item);
 }
