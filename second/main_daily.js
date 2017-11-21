@@ -45,12 +45,12 @@ for (let i = 0; i <= date.day; i++) {
   arrDays[i].onclick = function (e) {
     if (i !== date.day) return false;
     let node = e.target.nodeName.toLowerCase();
-    if (node === 'li' && parseInt(e.target.id) > date.step) {
+    if (node === 'li' && parseInt(e.target.dataset.step) > date.step) {
       text.innerHTML = '还没到这个步骤哦!'
       confirm.style.display = 'block'
     }
-    if (node === 'li' && parseInt(e.target.id) < date.step ) {
-      switch (parseInt(e.target.id)) {
+    if (node === 'li' && parseInt(e.target.dataset.step) < date.step ) {
+      switch (parseInt(e.target.dataset.step)) {
         case 0:
         text.innerHTML = ( killList[date.day] + 1 ) + '号玩家被杀了!！他的身份是' + wordList[playerList[killList[date.day]] - 1];
         confirm.style.display = 'block'
@@ -65,13 +65,13 @@ for (let i = 0; i <= date.day; i++) {
         break;
       }
     }
-    if (node === 'li' && parseInt(e.target.id) === date.step) {
+    if (node === 'li' && parseInt(e.target.dataset.step) === date.step) {
       date.step++;
       if(date.step === 4) {
         date.day++;
         date.step = 0;
       } 
-      switch (parseInt(e.target.id)) {
+      switch (parseInt(e.target.dataset.step)) {
         case 0:
           window.location.href = 'kill.html';
         break;
@@ -89,6 +89,7 @@ for (let i = 0; i <= date.day; i++) {
           window.location.href = 'vote.html';
         break;
       }
+      ele('class', 'day')[date.day].getElementsByTagName('li')[date.step - 1].style.background = color;
     }
     store('daily', JSON.stringify(date) );
   }
@@ -96,7 +97,7 @@ for (let i = 0; i <= date.day; i++) {
 
 confirmBtn.onclick = function () {
   confirm.style.display = 'none';
-  window.location.href = 'daily.html';
+  // window.location.href = 'daily.html';
 }
 
 lawerDaily.onclick = function () {
@@ -120,7 +121,7 @@ function createDaily (date) {
   let len = date.step;
   let arr = '';
   for (let i = 0; i <= days; i++) {
-    arr += '<div class="day"><p class="title">第' + dayList[i] +'天</p><ul><li id="0">杀手杀人(点击查看死者)</li><li id="1">亡灵发表遗言</li><li  id="2">玩家轮流发言</li><li id="3">全民投票</li></ul></div>'
+    arr += '<div class="day"><p class="title">第' + dayList[i] +'天</p><ul><li data-step="0">杀手杀人(点击查看死者)</li><li data-step="1">亡灵发表遗言</li><li data-step="2">玩家轮流发言</li><li data-step="3">全民投票</li></ul></div>'
   }
   daily.innerHTML = arr;
 }
