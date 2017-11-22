@@ -8,12 +8,11 @@ var arrCard, arrSkill, len;
 var roleState = readStoreList('roleState');
 var playerList = readStoreList('playerList');
 var killList = readStoreList('killList') || [];
-
+var turnFlag = true;
 initBox(playerList);
 
 box.onclick = function (e) {
   let node = e.target.parentNode.parentNode;
-  console.log(node.nodeName);
   if(node.nodeName.toLowerCase() !== 'div') return false;
   let skillNode = node.getElementsByTagName('ul')[0];
   initSkill();
@@ -27,16 +26,25 @@ kill.onclick = function () {
     error.style.display = 'block';
     return false;
   }
-  if (!roleState[quitRole]) return false;
+  if (!roleState[quitRole]) {
+    text.innerText = '你确定今夜放大家一条生路吗？';
+    error.style.display = 'block';
+    turnFlag = false;
+  }
   roleState[quitRole] = 0;
   storeList('roleState', roleState);
   killList.push(quitRole);
   storeList('killList', killList);
-  window.location.href = 'daily.html';
+  if (turnFlag) {
+    window.location.href = 'daily.html';
+  }
 }
 
 confirmBtn.onclick = function () {
   error.style.display = 'none';
+  if (!turnFlag) {
+    window.location.href = 'daily.html';
+  }
 }
 
 function initSkill() {

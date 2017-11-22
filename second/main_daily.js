@@ -21,7 +21,6 @@ var showFlag = true;
 init();
 boxInit(playerList);
 
-
 function init () {
   date = readStore('daily') ? JSON.parse(readStore('daily')) : {"day" : 0, "step" : 0};
   createDaily (date);
@@ -52,7 +51,7 @@ for (let i = 0; i <= date.day; i++) {
     if (node === 'li' && parseInt(e.target.dataset.step) < date.step ) {
       switch (parseInt(e.target.dataset.step)) {
         case 0:
-        text.innerHTML = ( killList[date.day] + 1 ) + '号玩家被杀了!！他的身份是' + wordList[playerList[killList[date.day]] - 1];
+        text.innerHTML = killList[date.day] !== -1 ? ( killList[date.day] + 1 ) + '号玩家被杀了!！他的身份是' + wordList[playerList[killList[date.day]] - 1] : '杀手放了大家一条生路~今夜无人死亡';
         confirm.style.display = 'block'
         break;
         case 1:
@@ -70,7 +69,8 @@ for (let i = 0; i <= date.day; i++) {
       if(date.step === 4) {
         date.day++;
         date.step = 0;
-      } 
+      }
+      store('daily', JSON.stringify(date));
       switch (parseInt(e.target.dataset.step)) {
         case 0:
           window.location.href = 'kill.html';
@@ -91,7 +91,7 @@ for (let i = 0; i <= date.day; i++) {
       }
       ele('class', 'day')[date.day].getElementsByTagName('li')[date.step - 1].style.background = color;
     }
-    store('daily', JSON.stringify(date) );
+    // store('daily', JSON.stringify(date) );
   }
 }
 
@@ -108,10 +108,13 @@ lawerDaily.onclick = function () {
     daily.style.display = 'block';
     roleBox.style.display = 'none';
   }
-  showFlag = false;
+  showFlag = !showFlag;
 }
 
 back.onclick = function () {
+  if (!showFlag) {
+    showFlag = true;
+  }
   daily.style.display = 'block';
   roleBox.style.display = 'none';
 }

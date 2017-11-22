@@ -55,11 +55,9 @@ function judge(playerList, roleState) {
   });
   if ( killerNum === 0 ) {
     store('result', 'win');
-    console.log('people win!');
   }
   if ( killerNum >= (peopleNum + capNum - 1) ) {
     store('result', 'fail');
-    console.log(' killer win!')
   }
   console.log(readStore('result'), arrAlive);
 }
