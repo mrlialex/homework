@@ -17,7 +17,6 @@ var dayList = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '�
 var arrDays, color = '#81b09a';
 var showFlag = true;
 
-
 init();
 boxInit(playerList);
 

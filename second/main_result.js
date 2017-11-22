@@ -29,7 +29,10 @@ moreGame.onclick = function () {
 function creatDaily() {
   let str = ''
   for(let i = 0; i < day; i++) {
-    str += '<li><h1 class="date">第' + (i + 1) + '天</h1><span class="time">0小时07分</span><div class="details"><p><span>晚上：</span><span>' + (killList[i] + 1) + '号被杀手杀死，' + (killList[i] + 1) + '号是' + wordList[playerList[killList[i]]-1] + '</span></p><p><span>白天：</span><span>' + (voteList[i] + 1) + '号被全民投票投死，' + (voteList[i] + 1) + '号是' + wordList[playerList[voteList[i]]-1] +'</span></p></div></li>'
+    let kill = '<p><span>晚上：</span><span>' + (killList[i] + 1) + '号被杀手杀死，' + (killList[i] + 1) + '号是' + wordList[playerList[killList[i]] - 1] + '</span></p>';
+    let nokill = '<p><span>晚上：</span><span>杀手手下留情，没有杀人</span></p>';
+    let night = killList[i] === -1 ? nokill : kill;
+    str += '<li><h1 class="date">第' + (i + 1) + '天</h1><span class="time">0小时07分</span><div class="details">'+ night +'<p><span>白天：</span><span>' + (voteList[i] + 1) + '号被全民投票投死，' + (voteList[i] + 1) + '号是' + wordList[playerList[voteList[i]]-1] +'</span></p></div></li>'
   }
   dailyBox.innerHTML = str;
 }
